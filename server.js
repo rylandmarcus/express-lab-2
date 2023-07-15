@@ -52,6 +52,22 @@ app.get('/bugs/:number_of_bugs', (req, res)=>{
     }
 })
 
+app.get('/fibonacci/:number', (req, res)=>{
+    let isPerfectSquare = (x)=>{
+        let s = parseInt(Math.sqrt(x))
+        return (s*s==x)
+    }
+    if (req.params.number==0 || req.params.number==1){
+        res.send('Very good. It is Fibonacci')
+    } else if (isPerfectSquare((5*parseInt(req.params.number)*parseInt(req.params.number))+4)) {
+        res.send('Very good. It is Fibonacci')
+    } else if (isPerfectSquare((5*parseInt(req.params.number)*parseInt(req.params.number))-4)) {
+        res.send('Very good. It is Fibonacci')
+    } else {
+        res.send('I can tell this is not a fibonacci number.')
+    }
+})
+
 app.listen(3000, () => {
     console.log('listening');
 });
