@@ -23,6 +23,18 @@ app.get('/magic/:question', (req, res)=>{
     console.log(req.params);
 })
 
+app.get('/beer', (req, res)=>{
+    res.send('99 bottles of beer on the wall'+'<h3><a href="./98">take one down, pass it around</a></h3>')
+})
+
+app.get('/beer/:number_of_bottles', (req, res)=>{
+    if (req.params.number_of_bottles==0){
+        res.send('No more bottles of beer on the wall!'+`<h3><a href="./">Start Over?</a></h3>`)
+    } else {
+        res.send(`${req.params.number_of_bottles} bottles of beer on the wall`+`<h3><a href="./${req.params.number_of_bottles-1}">take one down, pass it around</a></h3>`)
+    }
+})
+
 app.listen(3000, () => {
     console.log('listening');
 });
