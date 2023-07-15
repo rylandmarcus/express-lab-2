@@ -24,7 +24,7 @@ app.get('/magic/:question', (req, res)=>{
 })
 
 app.get('/beer/', (req, res)=>{
-    res.send('99 bottles of beer on the wall'+'<h3><a href="./98">take one down, pass it around</a></h3>')
+    res.send('99 bottles of beer on the wall'+'<h3><a href="beer/98">take one down, pass it around</a></h3>')
 })
 
 app.get('/beer/:number_of_bottles', (req, res)=>{
@@ -36,7 +36,7 @@ app.get('/beer/:number_of_bottles', (req, res)=>{
 })
 
 app.get('/bugs/', (req, res)=>{
-    res.send('99 little bugs in the code'+'<h3><a href="./98">take on down, patch it around</a></h3>')
+    res.send('99 little bugs in the code'+'<h3><a href="bugs/98">take on down, patch it around</a></h3>')
 })
 
 app.get('/bugs/:number_of_bugs', (req, res)=>{
