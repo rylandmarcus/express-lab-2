@@ -23,7 +23,7 @@ app.get('/magic/:question', (req, res)=>{
     console.log(req.params);
 })
 
-app.get('/beer', (req, res)=>{
+app.get('/beer/', (req, res)=>{
     res.send('99 bottles of beer on the wall'+'<h3><a href="./98">take one down, pass it around</a></h3>')
 })
 
@@ -32,6 +32,23 @@ app.get('/beer/:number_of_bottles', (req, res)=>{
         res.send('No more bottles of beer on the wall!'+`<h3><a href="./">Start Over?</a></h3>`)
     } else {
         res.send(`${req.params.number_of_bottles} bottles of beer on the wall`+`<h3><a href="./${req.params.number_of_bottles-1}">take one down, pass it around</a></h3>`)
+    }
+})
+
+app.get('/bugs/', (req, res)=>{
+    res.send('99 little bugs in the code'+'<h3><a href="./98">take on down, patch it around</a></h3>')
+})
+
+app.get('/bugs/:number_of_bugs', (req, res)=>{
+    if (req.params.number_of_bugs==0){
+        res.send('No more bugs in the code!'+`<h3><a href="./">Start Over?</a></h3>`)
+    } else {
+        let random4 = Math.floor(Math.random()*4)
+        if (random4===3){
+            res.send(`${req.params.number_of_bugs} bugs in the code`+`<h3><a href="./${parseInt(req.params.number_of_bugs)+(Math.floor(Math.random()*30))}">take on down, patch it around</a></h3>`)
+        } else {
+            res.send(`${req.params.number_of_bugs} bugs in the code`+`<h3><a href="./${req.params.number_of_bugs-1}">take on down, patch it around</a></h3>`)
+        }
     }
 })
 
